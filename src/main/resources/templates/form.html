@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>スケジュール投稿</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<form class="form py-4 needs-validation h-adr" method="post" th:action="@{/add/}" th:object="${scheduleBook}">
+		<div class="row mt-3">
+			<label for="Name" class="col-4 col-form-label text-end">名前</label>
+			<div class="col-4">
+				<input type="text" class="form-control" id="Name" name="Name" th:field="*{Name}"
+					th:classappend="${#fields.hasErrors('Name')} ? 'is-invalid' : 'is-valid'" />
+				<divvf="${#fields.hasErrors('Name')}" th:errors="*{Name}" class="invalid-feedback">errors!
+			</div>
+		</div>
+		</div>
+		<div class="row mt-3">
+			<label for="Day" class="col-4 col-form-label text-end">日付</label>
+			<div class="col-4">
+				<input type="date" class="form-control" id="Day" name="Day" th:field="*{Day}"
+					th:classappend="${#fields.hasErrors('Day')} ? 'is-invalid' : 'is-valid'" />
+				<divvf="${#fields.hasErrors('Day')}" th:errors="*{Day}" class="invalid-feedback">errors!
+ 
+			</div>
+ 
+		</div>
+ 
+		</div>
+ 
+		<div class="row mt-3">
+ 
+			<label for="Title" class="col-4 col-form-label text-end">件名</label>
+ 
+			<div class="col-4">
+ 
+				<input type="text" class="form-control" id="Title" name="Title" th:field="*{Title}"
+					th:classappend="${#fields.hasErrors('Title')} ? 'is-invalid' : 'is-valid'" />
+ 
+				<divvf="${#fields.hasErrors('Title')}" th:errors="*{Title}" class="invalid-feedback">errors!
+ 
+			</div>
+ 
+		</div>
+ 
+		</div>
+ 
+		<div class="row mt-3">
+ 
+			<label for="Detail" class="col-4 col-form-label text-end">内容</label>
+ 
+			<div class="col-4">
+ 
+				<input type="text" class="form-control" id="Detail" name="Detail" th:field="*{Detail}"
+					th:classappend="${#fields.hasErrors('Detail')} ? 'is-invalid' : 'is-valid'" />
+ 
+				<divvf="${#fields.hasErrors('Detail')}" th:errors="*{Detail}" class="invalid-feedback">errors!
+ 
+			</div>
+ 
+		</div>
+ 
+		</div>
+ 
+		<div class="col-4">
+ 
+			<input type="submit" value="送信する">
+ 
+		</div>
+ 
+		</div>
+ 
+		</div>
+ 
+	</form>
+</html>

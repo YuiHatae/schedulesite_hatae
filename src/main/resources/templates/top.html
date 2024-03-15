@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>スケジュールサイト</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+
+<h3>スケジュール一覧</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">名前</th>
+      <th scope="col">日付</th>
+      <th scope="col">件名</th>
+      <th scope="col">内容</th>
+      <th role="action"></th>
+    </tr>
+  </thead>
+	  <tr class="align-middle" th:each="item, stat : ${list}" th:object="${item}">
+		  <td th:text="${stat.count}"></td>
+		  <td th:text="|*{name}"></td>
+		  <td th:text="*{day}"></td>
+		  <td th:text="*{title}"></td>
+		  <td th:text="*{detail}"></td>
+	
+		<td>
+			<a class="btn btn-warning" th:href="@{/delete/{id}(id=*{id})}">削除</a>
+		</td>
+	</tr>
+  <tbody class="table-group-divider">
+ 	<div th:unless="${list!=null and !list.empty}">
+		<div class="alert alert-danger" role="alert">
+			データなし
+		</div>
+	</div>
+			<a class="btn btn-warning" th:href="@{/add/}">スケジュールを追加する</a>
+  </tbody>
+</table>
